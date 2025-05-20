@@ -8,9 +8,9 @@ CREATE TABLE users (
 
 CREATE TABLE video_analysis (
     id SERIAL PRIMARY KEY,
-    email VARCHAR,
-    video_id VARCHAR,
-    video_url TEXT,
+    email VARCHAR(255) NOT NULL,
+    video_id VARCHAR(50) NOT NULL,
+    video_url TEXT NOT NULL,
     total_views INTEGER,
     likes INTEGER,
     shares INTEGER,
@@ -20,13 +20,15 @@ CREATE TABLE video_analysis (
     total_comments_analyzed INTEGER,
     audience_mood_score DOUBLE PRECISION,
     summary TEXT,
-    rag_agent BOOLEAN DEFAULT false,
-    created_at TIMESTAMP DEFAULT now(),
-    positive_percentage NUMERIC,
-    negative_percentage NUMERIC,
-    neutral_percentage NUMERIC,
-    video_title TEXT
+    rag_agent BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    positive_percentage NUMERIC(5,2) DEFAULT 0,
+    negative_percentage NUMERIC(5,2) DEFAULT 0,
+    neutral_percentage NUMERIC(5,2) DEFAULT 0,
+    video_title TEXT,
+    UNIQUE (email, video_id)
 );
+
 dotenv express express-openid-connect axios pg node-cron cors http-proxy express-session
 google-api-python-client httplib2 urllib3 requests torch sentence-transformers pinecone-client flask flask-cors psycopg2
 
