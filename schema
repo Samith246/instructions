@@ -24,3 +24,4 @@ CREATE TABLE video_analysis (
     neutral_percentage NUMERIC,
     video_title TEXT
 );
+dotenv express express-openid-connect axios pg node-cron cors http-proxy express-session
