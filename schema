@@ -1,8 +1,9 @@
-SELECT table_name, column_name, column_default
-FROM information_schema.columns
-WHERE table_schema = 'public'
-  AND table_name IN ('users', 'video_analysis')
-  AND column_default IS NOT NULL;
+-- Table: users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    tier VARCHAR(50) DEFAULT 'free',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE video_analysis (
     id SERIAL PRIMARY KEY,
     email VARCHAR,
