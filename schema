@@ -1,9 +1,11 @@
--- Table: users
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    tier VARCHAR(50) DEFAULT 'free',
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    tier VARCHAR(50) NOT NULL DEFAULT 'free',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 CREATE TABLE video_analysis (
     id SERIAL PRIMARY KEY,
     email VARCHAR,
