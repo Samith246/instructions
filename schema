@@ -1,0 +1,26 @@
+SELECT table_name, column_name, column_default
+FROM information_schema.columns
+WHERE table_schema = 'public'
+  AND table_name IN ('users', 'video_analysis')
+  AND column_default IS NOT NULL;
+CREATE TABLE video_analysis (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR,
+    video_id VARCHAR,
+    video_url TEXT,
+    total_views INTEGER,
+    likes INTEGER,
+    shares INTEGER,
+    comments INTEGER,
+    engagement_rate DOUBLE PRECISION,
+    engagement_ratio DOUBLE PRECISION,
+    total_comments_analyzed INTEGER,
+    audience_mood_score DOUBLE PRECISION,
+    summary TEXT,
+    rag_agent BOOLEAN DEFAULT false,
+    created_at TIMESTAMP DEFAULT now(),
+    positive_percentage NUMERIC,
+    negative_percentage NUMERIC,
+    neutral_percentage NUMERIC,
+    video_title TEXT
+);
