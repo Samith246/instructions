@@ -25,3 +25,4 @@ CREATE TABLE video_analysis (
     video_title TEXT
 );
 dotenv express express-openid-connect axios pg node-cron cors http-proxy express-session
+google-api-python-client httplib2 urllib3 requests torch sentence-transformers pinecone-client flask flask-cors psycopg2
